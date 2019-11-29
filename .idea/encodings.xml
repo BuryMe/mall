@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-admin-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-fund" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-mall-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-market" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-mq-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-notify-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-pay-base" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-product" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-sms-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-supplier" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lagola-task" charset="UTF-8" />
+  </component>
+</project>
