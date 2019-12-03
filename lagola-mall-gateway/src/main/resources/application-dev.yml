@@ -1,0 +1,33 @@
+server:
+  #  servlet:
+  #    context-path: /mall-gateway
+  port: 8000
+
+token:
+  secret: geiwodiangasfdjsikolkjikolkijswe
+
+aes:
+  key: 4325fsd@!dsfhs
+
+logging:
+  level:
+    root: info
+
+### 如果配置多个address必须以 , 隔开。多个password也是以 , 隔开。且对应关系必须一一对应，即第n个address对应的密码也排在列队第n位。
+gateway:
+  redis:
+    address: redis://192.168.1.10:6379
+    password: 123456
+    expireMinite: 43200
+
+#  单层路径匹配 {segment}
+#localhost:8000/service1/ -> http://httpbin.org:80/service1/**
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: client-user
+          uri: http://localhost:8080/
+          predicates:
+            - Path=/lagola-gateway/**
+
