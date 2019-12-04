@@ -21,6 +21,7 @@
         <revision>0.0.1-SNAPSHOT</revision>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
         <mybatis.starter.version>2.1.1</mybatis.starter.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -33,7 +34,6 @@
         <mybatis-generator.version>1.3.7</mybatis-generator.version>
         <mybatis.version>3.4.6</mybatis.version>
         <mysql-connector.version>8.0.15</mysql-connector.version>
-        <spring-data-commons.version>2.1.5.RELEASE</spring-data-commons.version>
         <jjwt.version>0.9.0</jjwt.version>
         <logstash-logback.version>4.8</logstash-logback.version>
         <druid.version>1.1.10</druid.version>
@@ -53,22 +53,22 @@
     </distributionManagement>
 
     <modules>
-       <module>lagola-admin-gateway</module>
-       <module>lagola-fund</module>
-       <module>lagola-mall-gateway</module>
-       <module>lagola-market</module>
-       <module>lagola-member</module>
-       <module>lagola-mq-consumer</module>
-       <module>lagola-notify-center</module>
-       <module>lagola-order</module>
-       <module>lagola-pay-base</module>
-       <module>lagola-product</module>
-       <module>lagola-search</module>
-       <module>lagola-sms-center</module>
-       <module>lagola-supplier</module>
-       <module>lagola-task</module>
+        <module>lagola-admin-gateway</module>
+        <module>lagola-fund</module>
+        <module>lagola-mall-gateway</module>
+        <module>lagola-market</module>
+        <module>lagola-member</module>
+        <module>lagola-mq-consumer</module>
+        <module>lagola-notify-center</module>
+        <module>lagola-order</module>
+        <module>lagola-pay-base</module>
+        <module>lagola-product</module>
+        <module>lagola-search</module>
+        <module>lagola-sms-center</module>
+        <module>lagola-supplier</module>
+        <module>lagola-task</module>
         <module>lagola-common</module>
-   </modules>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -96,7 +96,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -171,7 +171,6 @@
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-commons</artifactId>
-                <version>${spring-data-commons.version}</version>
             </dependency>
             <!--JWT(Json Web Token)登录支持-->
             <dependency>
@@ -188,37 +187,37 @@
         </dependencies>
     </dependencyManagement>
 
-     <build>
-         <plugins>
-             <plugin>
-                 <groupId>org.springframework.boot</groupId>
-                 <artifactId>spring-boot-maven-plugin</artifactId>
-             </plugin>
-             <!--<plugin>
-                 <groupId>org.codehaus.mojo</groupId>
-                 <artifactId>flatten-maven-plugin</artifactId>
-                 <version>1.1.0</version>
-                 <executions>
-                     <execution>
-                         <id>flatten</id>
-                         <phase>process-resources</phase>
-                         <goals>
-                             <goal>flatten</goal>
-                         </goals>
-                     </execution>
-                     <execution>
-                         <id>flatten.clean</id>
-                         <phase>clean</phase>
-                         <goals>
-                             <goal>clean</goal>
-                         </goals>
-                     </execution>
-                 </executions>
-             </plugin>-->
-         </plugins>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.1.0</version>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
 
 
-     </build>
+    </build>
     <profiles>
         <profile>
             <id>nexus</id>
@@ -252,18 +251,18 @@
                     </plugin>
                 </plugins>
             </build>-->
-<!--            <distributionManagement>-->
-<!--                <snapshotRepository>-->
-<!--                    <id>public</id>-->
-<!--&lt;!&ndash;                    <name>snapshots</name>&ndash;&gt;-->
-<!--                    <url>http://192.168.1.6:8080/nexus/content/groups/public/</url>-->
-<!--                </snapshotRepository>-->
-<!--                <repository>-->
-<!--                    <id>public</id>-->
-<!--&lt;!&ndash;                    <name>releases</name>&ndash;&gt;-->
-<!--                    <url>http://192.168.1.6:8080/nexus/content/groups/public/</url>-->
-<!--                </repository>-->
-<!--            </distributionManagement>-->
+            <!--            <distributionManagement>-->
+            <!--                <snapshotRepository>-->
+            <!--                    <id>public</id>-->
+            <!--&lt;!&ndash;                    <name>snapshots</name>&ndash;&gt;-->
+            <!--                    <url>http://192.168.1.6:8080/nexus/content/groups/public/</url>-->
+            <!--                </snapshotRepository>-->
+            <!--                <repository>-->
+            <!--                    <id>public</id>-->
+            <!--&lt;!&ndash;                    <name>releases</name>&ndash;&gt;-->
+            <!--                    <url>http://192.168.1.6:8080/nexus/content/groups/public/</url>-->
+            <!--                </repository>-->
+            <!--            </distributionManagement>-->
         </profile>
 
     </profiles>

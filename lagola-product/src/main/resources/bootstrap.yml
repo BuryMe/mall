@@ -1,6 +1,6 @@
 spring:
   application:
-    name: lagola-admin-gateway
+    name: lagola-product
   cloud:
     nacos:
       config:
