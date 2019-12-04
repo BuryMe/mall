@@ -52,22 +52,23 @@
         </snapshotRepository>
     </distributionManagement>
 
-<!--    <modules>-->
-<!--       <module>lagola-admin-gateway</module>-->
-<!--       <module>lagola-fund</module>-->
-<!--       <module>lagola-mall-gateway</module>-->
-<!--       <module>lagola-market</module>-->
-<!--       <module>lagola-member</module>-->
-<!--       <module>lagola-mq-consumer</module>-->
-<!--       <module>lagola-notify-center</module>-->
-<!--       <module>lagola-order</module>-->
-<!--       <module>lagola-pay-base</module>-->
-<!--       <module>lagola-product</module>-->
-<!--       <module>lagola-search</module>-->
-<!--       <module>lagola-sms-center</module>-->
-<!--       <module>lagola-supplier</module>-->
-<!--       <module>lagola-task</module>-->
-<!--   </modules>-->
+    <modules>
+       <module>lagola-admin-gateway</module>
+       <module>lagola-fund</module>
+       <module>lagola-mall-gateway</module>
+       <module>lagola-market</module>
+       <module>lagola-member</module>
+       <module>lagola-mq-consumer</module>
+       <module>lagola-notify-center</module>
+       <module>lagola-order</module>
+       <module>lagola-pay-base</module>
+       <module>lagola-product</module>
+       <module>lagola-search</module>
+       <module>lagola-sms-center</module>
+       <module>lagola-supplier</module>
+       <module>lagola-task</module>
+        <module>lagola-common</module>
+   </modules>
 
     <dependencies>
         <dependency>
