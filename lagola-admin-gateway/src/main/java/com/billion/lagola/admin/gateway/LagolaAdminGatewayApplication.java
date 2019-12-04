@@ -12,4 +12,6 @@ public class LagolaAdminGatewayApplication {
         SpringApplication.run(LagolaAdminGatewayApplication.class, args);
     }
 
+
+
 }
