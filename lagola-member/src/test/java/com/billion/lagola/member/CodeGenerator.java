@@ -16,10 +16,10 @@ import java.util.Scanner;
 
 /**
  * @Auther: fusw
- * @Date: 2019-12-04 14:34
+ * @Date: 2019-12-04 17:33
  * @Description:
  */
-public class GenerateMybatisPlus {
+public class CodeGenerator {
 
     /**
      * <p>
@@ -46,16 +46,17 @@ public class GenerateMybatisPlus {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        final String projectPath = System.getProperty("user.dir");
+        String projectPath = "/Users/fusw/Downloads/ZZ_project/lagola-mall/lagola-member";
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("GenerateMybatisPlus");
+        gc.setAuthor("jobob");
         gc.setOpen(false);
-//        gc.setSwagger2(true);//实体属性 Swagger2 注解
+//        实体属性 Swagger2 注解
+        gc.setSwagger2(true);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.1.8:3306/lagola-member");
+        dsc.setUrl("jdbc:mysql://192.168.1.8:3306/lagola_member?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
@@ -64,8 +65,8 @@ public class GenerateMybatisPlus {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        //pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.billion.eval");
+//        pc.setModuleName(scanner("模块名"));
+        pc.setParent("com.billion.lagola.member");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -88,7 +89,8 @@ public class GenerateMybatisPlus {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
+                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*
@@ -118,23 +120,22 @@ public class GenerateMybatisPlus {
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
-        // 命名规则
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.billion.eval.entity.BaseEntity");
-        // 实体是否使用Lombok插件
+//        strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
         strategy.setEntityLombokModel(true);
-        // 控制层是否使用Rest风格
         strategy.setRestControllerStyle(true);
-
-        //strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
-        strategy.setInclude(scanner("表名").split(","));
+        // 公共父类
+//        strategy.setSuperControllerClass("com.core.ant.common.BaseController");
+        // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
+        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
+
 
 }

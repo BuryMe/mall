@@ -10,4 +10,8 @@ class LagolaMemberApplicationTests {
     void contextLoads() {
     }
 
+    public static void main(String[] args) {
+
+        System.getProperty("user.dir");
+    }
 }
