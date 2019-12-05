@@ -40,6 +40,10 @@
         <mybatis-plus-generator.version>3.1.0</mybatis-plus-generator.version>
         <freemarker.version>2.3.28</freemarker.version>
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
+        <guava.version>21.0</guava.version>
+        <jedis.version>3.0.0</jedis.version>
+        <fastjson.version>1.2.62</fastjson.version>
+        <jwt.version>7.1</jwt.version>
     </properties>
 
     <distributionManagement>
@@ -204,6 +208,30 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--        google guava-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!-- jedis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+<!--            fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+<!--            jwt-->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${jwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

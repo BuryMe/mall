@@ -1,7 +1,12 @@
 package com.billion.lagola.member.mapper;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.billion.lagola.member.entity.UserBaseInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.billion.lagola.member.req.UserBaseInfoReq;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +18,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface UserBaseInfoMapper extends BaseMapper<UserBaseInfo> {
 
+    List<UserBaseInfo> getByParam(UserBaseInfoReq userBaseInfoReq);
+
+    Integer countByParam(UserBaseInfoReq userBaseInfoReq);
 }

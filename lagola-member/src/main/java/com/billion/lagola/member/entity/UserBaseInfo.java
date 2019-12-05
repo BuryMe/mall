@@ -2,6 +2,8 @@ package com.billion.lagola.member.entity;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
+import com.billion.lagola.member.enums.AccountStatusEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -19,7 +21,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="UserBaseInfo对象", description="用户信息表")
+@ApiModel(value = "UserBaseInfo对象", description = "用户信息表")
 public class UserBaseInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,7 +49,7 @@ public class UserBaseInfo implements Serializable {
     private Integer source;
 
     @ApiModelProperty(value = "用户手机号")
-    private Integer mobile;
+    private String mobile;
 
     @ApiModelProperty(value = "邮箱")
     private String email;

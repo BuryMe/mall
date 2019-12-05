@@ -10,4 +10,6 @@ public class LagolaCommonApplication {
         SpringApplication.run(LagolaCommonApplication.class, args);
     }
 
+
+
 }

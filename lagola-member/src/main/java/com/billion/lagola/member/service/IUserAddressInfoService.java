@@ -1,7 +1,9 @@
 package com.billion.lagola.member.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.billion.lagola.member.entity.UserAddressInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.billion.lagola.member.req.BasePageReq;
 
 /**
  * <p>
@@ -12,5 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-12-04
  */
 public interface IUserAddressInfoService extends IService<UserAddressInfo> {
+
+    public IPage<UserAddressInfo> getPageByUserId(BasePageReq basePageReq);
 
 }

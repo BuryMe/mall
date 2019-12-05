@@ -14,4 +14,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserRealInfoService extends IService<UserRealInfo> {
 
+    public UserRealInfo getByUserId(Long userId);
+
 }

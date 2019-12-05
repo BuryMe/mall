@@ -2,4 +2,55 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.billion.lagola.member.mapper.UserBaseInfoMapper">
 
+    <select id="getByParam" resultType="com.billion.lagola.member.resp.UserBaseResp">
+        SELECT
+        ubi.user_id,
+        uri.name ,
+        ubi.mobile,
+        uri.id_card_no,
+        ubi.status,
+        ubi.create_date
+        FROM
+        user_base_info ubi
+        LEFT JOIN user_real_info uri ON ubi.user_id = uri.user_id
+        <where>
+            <if test="mobileNo != null and mobileNo !='' ">
+                ubi.mobile = #{mobileNo}
+            </if>
+            <if test="userId != null and userId !='' ">
+                and ubi.user_id = #{userId}
+            </if>
+            <if test="name != null and name !='' ">
+                and uri.name = #{name}
+            </if>
+            <if test="idCardNo != null and idCardNo !='' ">
+                and uri.id_card_no = #{idCardNo}
+            </if>
+        </where>
+        LIMIT
+        #{pageNo},#{pageSize}
+    </select>
+
+    <select id="countByParam" resultType="java.lang.Integer">
+        SELECT
+            COUNT(ubi.user_id)
+        FROM
+        user_base_info ubi
+        LEFT JOIN user_real_info uri ON ubi.user_id = uri.user_id
+        <where>
+            <if test="mobileNo != null and mobileNo !='' ">
+                ubi.mobile = #{mobileNo}
+            </if>
+            <if test="userId != null and userId !='' ">
+                and ubi.user_id = #{userId}
+            </if>
+            <if test="name != null and name !='' ">
+                and uri.name = #{name}
+            </if>
+            <if test="idCardNo != null and idCardNo !='' ">
+                and uri.id_card_no = #{idCardNo}
+            </if>
+        </where>
+    </select>
+
 </mapper>

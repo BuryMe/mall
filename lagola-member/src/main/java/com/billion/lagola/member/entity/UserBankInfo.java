@@ -2,6 +2,8 @@ package com.billion.lagola.member.entity;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
+import com.billion.lagola.member.enums.BankCardTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -19,7 +21,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="UserBankInfo对象", description="用户银行卡信息表")
+@ApiModel(value = "UserBankInfo对象", description = "用户银行卡信息表")
 public class UserBankInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class UserBankInfo implements Serializable {
     private Integer bankCardType;
 
     @ApiModelProperty(value = "银行卡预留手机号")
-    private Integer bankCardMobileNo;
+    private String bankCardMobileNo;
 
     @ApiModelProperty(value = "信用卡CVV码")
     private Integer cvv;
