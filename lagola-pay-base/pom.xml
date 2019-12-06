@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.billion</groupId>
-        <artifactId>lagola-mall</artifactId>
+        <groupId>com.example</groupId>
+        <artifactId>lgl-mall</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>com.billion</groupId>
-    <artifactId>lagola-pay-base</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>lgl-pay-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lagola-pay-base</name>
+    <name>lgl-pay-base</name>
     <description>拉勾拉基础支付服务（主要包含微信、支付宝等）</description>
 
     <dependencies>

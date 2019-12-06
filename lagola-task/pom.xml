@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.billion</groupId>
-        <artifactId>lagola-mall</artifactId>
+        <groupId>com.example</groupId>
+        <artifactId>lgl-mall</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>com.billion</groupId>
-    <artifactId>lagola-task</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>lgl-task</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lagola-task</name>
+    <name>lgl-task</name>
     <description>拉勾拉定时任务处理中心</description>
 
     <dependencies>

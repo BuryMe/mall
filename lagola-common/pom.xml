@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.billion</groupId>
-        <artifactId>lagola-mall</artifactId>
+        <groupId>com.example</groupId>
+        <artifactId>lgl-mall</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>com.billion</groupId>
-    <artifactId>lagola-common</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>lgl-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lagola-common</name>
+    <name>lgl-common</name>
     <description>公共基础工具服务</description>
     <packaging>jar</packaging>
 
