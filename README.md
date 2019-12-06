@@ -1,22 +1,22 @@
-# LAGOLA 商城后端和管理站工程
+# demo 商城后端和管理站工程
 ## 模块划分
-- LAGOLA商城网关(lagola-mall-gateway)
-- LAGOLA管理站网关(lagola-admin-gateway)
-- LAGOLA资金方模块(lagola-fund)
-- LAGOLA营销模块(lagola-market)
-- LAGOLA商城会员模块(lagola-member)
-- LAGOLA MQ消费中心模块(lagola-mq-consumer)
-- LAGOLA业务回调处理模块(lagola-notify-center)
-- LAGOLA订单模块(lagola-order)
-- LAGOLA基础支付模块<主要包含微信支付、支付宝支付、银行卡支付等，不包含资金方支付相关>(lagola-pay-base)
-- LAGOLA商品模块(lagola-product)
-- LAGOLA搜索引擎(lagola-search)
-- LAGOLA消息服务中心<APP PUSH、短信推送、公众号推送等>(lagola-sms-center)
-- LAGOLA供应商模块(lagola-supplier)
-- LAGOLA定时任务处理(lagola-task)
+- demo商城网关(demo-mall-gateway)
+- demo管理站网关(demo-admin-gateway)
+- demo资金方模块(demo-fund)
+- demo营销模块(demo-market)
+- demo商城会员模块(demo-member)
+- demo MQ消费中心模块(demo-mq-consumer)
+- demo业务回调处理模块(demo-notify-center)
+- demo订单模块(demo-order)
+- demo基础支付模块<主要包含微信支付、支付宝支付、银行卡支付等，不包含资金方支付相关>(demo-pay-base)
+- demo商品模块(demo-product)
+- demo搜索引擎(demo-search)
+- demo消息服务中心<APP PUSH、短信推送、公众号推送等>(demo-sms-center)
+- demo供应商模块(demo-supplier)
+- demo定时任务处理(demo-task)
 ***
 ## 系统架构
-- ![LAGOLA系统主架构](document/image/LAGOLA系统架构.png)
+- ![demo系统主架构](document/image/demo系统架构.png)
 
 ***
 ## 开发规范参考
