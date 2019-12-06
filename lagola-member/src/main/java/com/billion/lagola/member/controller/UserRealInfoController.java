@@ -3,6 +3,7 @@ package com.billion.lagola.member.controller;
 
 import com.billion.lagola.member.service.IUserRealInfoService;
 import com.billion.lagolacommon.commons.ApiReturn;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ import javax.validation.constraints.NotNull;
 /**
  * <p>
  * 用户实名信息表
- 前端控制器
+ * 前端控制器
  * </p>
  *
  * @author jobob
@@ -24,6 +25,7 @@ import javax.validation.constraints.NotNull;
  */
 @RestController
 @RequestMapping("/user-real-info")
+@Api(tags = "用户实名信前端控制器")
 public class UserRealInfoController {
 
     @Resource

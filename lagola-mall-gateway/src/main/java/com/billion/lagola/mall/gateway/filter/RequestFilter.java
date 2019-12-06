@@ -74,55 +74,61 @@ public class RequestFilter implements GatewayFilter, Ordered {
             throw new IllegalArgumentException(valid.getMsg());
         }
 
+//        验证 queryParam中的sign签名
+
+
+
+
+
 //        解密body,修改body
-        String requestBody = exchange.getAttribute("cachedRequestBodyObject");
-        log.info("requestBody:{}", requestBody);
-        Optional.ofNullable(requestBody).orElseThrow(() -> new IllegalArgumentException("requestBody is null"));
-        JSONObject requestBodyJsonObj = JSONObject.parseObject(requestBody);
-        Optional.ofNullable(requestBodyJsonObj.get("data")).orElseThrow(() -> new IllegalArgumentException("requestBody's data is null"));
-        String data = requestBodyJsonObj.getString("data");
-        String decryptData;
-        try {
-            decryptData = AesUtil.decrypt(data, aesKey);
-        } catch (Exception e) {
-            log.error("fail to aes decrypt");
-            throw new IllegalArgumentException("data is error,fail to aes decrypt");
-        }
-        log.info("decryptData:{}", decryptData);
-        log.info("decryptDataJSON:{}", JSONObject.toJSONString(decryptData));
-
-//        TODO  2019-12-02 Flux<RequestData> requestDataFlux = serverRequest.bodyToFlux(RequestData.class); 暂时无解解析inclass类型包装的问题
-//        重写 ModifyRequestBodyGatewayFilterFactory 部分源码
-        Config config = new Config();
-        config.setInClass(JSON.class);
-        config.setOutClass(JSONObject.class);
-        config.setContentType(MediaType.APPLICATION_JSON);
-        List<HttpMessageReader<?>> messageReaders = new LinkedList<>();
-        ServerRequest serverRequest = ServerRequest.create(exchange, messageReaders);
-//        demo
-        Flux<RequestData> requestDataFlux = serverRequest.bodyToFlux(RequestData.class);
-        JSONObject peek = serverRequest.bodyToMono(JSONObject.class).toProcessor().peek();
-        log.info("peek:{}", peek.toJSONString());
-//        Mono<?> modifiedBody = serverRequest.bodyToMono(config.getInClass())
-//                .flatMap((body) -> {
-//                    decryptDataFunction(decryptData).apply(exchange, (String) o);
-//                });
-        Mono<?> modifiedBody = serverRequest.bodyToMono(JSONObject.class)
-                .flatMap(body -> Mono.just(decryptData));
-//        默认解码后明文为 JSONString
-        BodyInserter bodyInserter = BodyInserters.fromPublisher(modifiedBody, config.getOutClass());
-        HttpHeaders newHeaders = new HttpHeaders();
-        newHeaders.putAll(exchange.getRequest().getHeaders());
-        newHeaders.remove("Content-Length");
-        if (config.getContentType() != null) {
-            newHeaders.set("Content-Type", config.getContentType().toString());
-        }
-
-        LocalCachedBodyOutputMessage outputMessage = new LocalCachedBodyOutputMessage(exchange, newHeaders);
-        return bodyInserter.insert(outputMessage, new BodyInserterContext()).then(Mono.defer(() -> {
-            ServerHttpRequest decorator = decorate(exchange, newHeaders, outputMessage);
-            return chain.filter(exchange.mutate().request(decorator).build());
-        }));
+//        String requestBody = exchange.getAttribute("cachedRequestBodyObject");
+//        log.info("requestBody:{}", requestBody);
+//        Optional.ofNullable(requestBody).orElseThrow(() -> new IllegalArgumentException("requestBody is null"));
+//        JSONObject requestBodyJsonObj = JSONObject.parseObject(requestBody);
+//        Optional.ofNullable(requestBodyJsonObj.get("data")).orElseThrow(() -> new IllegalArgumentException("requestBody's data is null"));
+//        String data = requestBodyJsonObj.getString("data");
+//        String decryptData;
+//        try {
+//            decryptData = AesUtil.decrypt(data, aesKey);
+//        } catch (Exception e) {
+//            log.error("fail to aes decrypt");
+//            throw new IllegalArgumentException("data is error,fail to aes decrypt");
+//        }
+//        log.info("decryptData:{}", decryptData);
+//        log.info("decryptDataJSON:{}", JSONObject.toJSONString(decryptData));
+//
+////        TODO  2019-12-02 Flux<RequestData> requestDataFlux = serverRequest.bodyToFlux(RequestData.class); 暂时无解解析inclass类型包装的问题
+////        重写 ModifyRequestBodyGatewayFilterFactory 部分源码
+//        Config config = new Config();
+//        config.setInClass(JSON.class);
+//        config.setOutClass(JSONObject.class);
+//        config.setContentType(MediaType.APPLICATION_JSON);
+//        List<HttpMessageReader<?>> messageReaders = new LinkedList<>();
+//        ServerRequest serverRequest = ServerRequest.create(exchange, messageReaders);
+////        demo
+//        Flux<RequestData> requestDataFlux = serverRequest.bodyToFlux(RequestData.class);
+//        JSONObject peek = serverRequest.bodyToMono(JSONObject.class).toProcessor().peek();
+//        log.info("peek:{}", peek.toJSONString());
+////        Mono<?> modifiedBody = serverRequest.bodyToMono(config.getInClass())
+////                .flatMap((body) -> {
+////                    decryptDataFunction(decryptData).apply(exchange, (String) o);
+////                });
+//        Mono<?> modifiedBody = serverRequest.bodyToMono(JSONObject.class)
+//                .flatMap(body -> Mono.just(decryptData));
+////        默认解码后明文为 JSONString
+//        BodyInserter bodyInserter = BodyInserters.fromPublisher(modifiedBody, config.getOutClass());
+//        HttpHeaders newHeaders = new HttpHeaders();
+//        newHeaders.putAll(exchange.getRequest().getHeaders());
+//        newHeaders.remove("Content-Length");
+//        if (config.getContentType() != null) {
+//            newHeaders.set("Content-Type", config.getContentType().toString());
+//        }
+//
+//        LocalCachedBodyOutputMessage outputMessage = new LocalCachedBodyOutputMessage(exchange, newHeaders);
+//        return bodyInserter.insert(outputMessage, new BodyInserterContext()).then(Mono.defer(() -> {
+//            ServerHttpRequest decorator = decorate(exchange, newHeaders, outputMessage);
+//            return chain.filter(exchange.mutate().request(decorator).build());
+//        }));
 
     }
 

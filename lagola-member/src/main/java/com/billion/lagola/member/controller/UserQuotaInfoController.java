@@ -29,7 +29,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/user-quota-info")
-@Api("用户授信额度")
+@Api(tags = "用户授信额度前端控制器")
 @Validated
 public class UserQuotaInfoController {
 

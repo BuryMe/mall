@@ -93,26 +93,17 @@ public class TokenUtil {
 
 
     /**
-     * 生成token
-     * JWTEnum.EXP jwt过期时间 必须是long 类型的数据
+     * /**
+     * JWSHeader参数：1.加密算法法则,2.类型，3.。。。。。。。
+     * 一般只需要传入加密算法法则就可以。
+     * 这里则采用HS256
+     * JWSAlgorithm类里面有所有的加密算法法则，直接调用。
      *
      * @param payloadMap
      * @return
      * @throws JOSEException
      */
     public static String creatToken(Map<String, Object> payloadMap) throws JOSEException {
-        Assert.notEmpty(payloadMap, "token载荷Payload不得为空");
-//        AssertUtil.notEmpty(payloadMap.get(JWTEnum.ISS.name), "jwt签发者不能为空");
-//        AssertUtil.notEmpty(payloadMap.get(JWTEnum.AUD.name), "接收jwt的一方不能为空");
-//        AssertUtil.notEmpty(payloadMap.get(JWTEnum.IAT.name), "jwt签发时间不能为空");
-//        AssertUtil.notEmpty(payloadMap.get(JWTEnum.EXP.name), "jwt过期时间不能为空");
-        //3.先建立一个头部Header
-        /**
-         * JWSHeader参数：1.加密算法法则,2.类型，3.。。。。。。。
-         * 一般只需要传入加密算法法则就可以。
-         * 这里则采用HS256
-         * JWSAlgorithm类里面有所有的加密算法法则，直接调用。
-         */
         JWSHeader jwsHeader = new JWSHeader(JWSAlgorithm.HS256);
         //建立一个载荷Payload
         Payload payload = new Payload(new JSONObject(payloadMap));

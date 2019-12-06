@@ -6,6 +6,7 @@ import com.billion.lagola.member.entity.UserAddressInfo;
 import com.billion.lagola.member.req.BasePageReq;
 import com.billion.lagola.member.service.IUserAddressInfoService;
 import com.billion.lagolacommon.commons.ApiReturn;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("user-address-info")
+@Api(tags = "用户收货地址信息前端控制器")
 public class UserAddressInfoController {
 
     @Resource
